@@ -10,7 +10,15 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="?view=login">Login</a>
+
+                <?php
+                  if(!isset($_SESSION['app_id'])){
+                    echo '<a class="nav-link active" aria-current="page" href="?view=login">Login</a>';
+                  } else {
+                    echo '<a class="nav-link active" aria-current="page" href="?view=logout">'. strtoupper($_users[$_SESSION['app_id']]['nombre']) .'</a>';
+                  }
+                ?>
+                
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
